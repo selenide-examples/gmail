@@ -3,6 +3,9 @@ Selenide examples: Gmail
 
 This is a sample project demonstrating how to test GMail UI with Selenide (Selenium webdriver).
 
+**You can checkout and run it locally with a few minutes.**
+
+
 To run Gmail tests, just type from command line:
 
 ```
@@ -18,3 +21,5 @@ systemProp.gmail.password=your_gmail_password
 ```
 
 And just run `./gradle` from command line.
+
+_Feel free to share your feedback!_
