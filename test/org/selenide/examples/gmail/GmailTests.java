@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.addListener;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
 public abstract class GmailTests {
@@ -21,6 +22,7 @@ public abstract class GmailTests {
     timeout = 10000;
     baseUrl = "http://gmail.com";
     startMaximized = false;
+    addListener(new Highlighter());
     
     open("/");
     login();

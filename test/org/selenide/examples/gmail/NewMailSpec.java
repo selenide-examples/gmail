@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static org.selenide.examples.gmail.Highlighter.highlight;
 
 public class NewMailSpec extends GmailTests {
   @Test
@@ -20,19 +21,19 @@ public class NewMailSpec extends GmailTests {
 
     $(withText("Your message has been sent.")).shouldBe(visible);
     $(byText("Undo")).click();
-    $(byText("Sending has been undone.")).should(appear);
+    highlight($(byText("Sending has been undone.")).should(appear));
 
     $(".editable").should(appear).append("Hello from ConfetQA Selen").pressEnter().pressEnter();
 
     $(byText("Send")).click();
-    $(withText("Your message has been sent.")).should(appear);
-    $(byText("Undo")).waitUntil(disappears, 12000);
+    highlight($(withText("Your message has been sent.")).should(appear));
+    highlight($(byText("Undo")).should(appear)).waitUntil(disappears, 12000);
 
     assertUserCanSeeSentEmails();
   }
 
   private void assertUserCanSeeSentEmails() {
     $(byText("Sent Mail")).click();
-    $(byText("ConfetQA demo!")).shouldBe(visible);
+    highlight($(byText("ConfetQA demo!")).shouldBe(visible));
   }
 }
