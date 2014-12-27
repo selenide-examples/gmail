@@ -29,4 +29,4 @@ _Feel free to share your feedback!_
 
 It's a short video demonstrating how it works:
 
-<iframe src="//player.vimeo.com/video/115448433" width="800" height="526" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/115448433">GMail test</a> from <a href="http://vimeo.com/user20427140">Selenide</a> on <a href="https://vimeo.com">Vimeo</a>.</p> <p>A sample project demonstrating how to test GMail UI with Selenide (Selenium webdriver).<br /> <br /> You can checkout and run it locally with a few minutes!<br /> <br /> https://github.com/selenide-examples/gmail</p>
+https://vimeo.com/115448433
