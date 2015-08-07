@@ -1,4 +1,4 @@
-package org.selenide.examples.gmail;
+package com.selenide.examples.sugar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

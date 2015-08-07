@@ -37,10 +37,11 @@ classes.dependsOn libs
 
 test {
   systemProperties = [
-    'file.encoding': 'UTF-8',
-    'selenide.browser': 'firefox',
-    'gmail.username': System.getProperty('gmail.username', "enter-your-gmail-username"),
-    'gmail.password': System.getProperty('gmail.password', "enter-your-gmail-password")
+          'file.encoding': 'UTF-8',
+          'selenide.browser': 'chrome',
+          'webdriver.chrome.driver': '/Users/904824/bin/chromedriver',
+          'gmail.username': System.getProperty('gmail.username', "dummy-username"),
+          'gmail.password': System.getProperty('gmail.password', "dummy-password")
   ]
   testLogging.showStandardStreams = true
 }

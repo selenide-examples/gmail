@@ -1,4 +1,4 @@
-package org.selenide.examples.gmail;
+package com.selenide.examples.sugar;
 
 import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.AfterClass;
@@ -39,8 +39,9 @@ public abstract class GmailTests {
   }
 
   private static void login() {
-    $("#Email").val(System.getProperty("gmail.username", "enter-your-gmail-username"));
-    $("#Passwd").val(System.getProperty("gmail.password", "enter-your-gmail-password"));
+    $("#Email").val(System.getProperty("gmail.username", "dummy-username"));
+    $("#next").click();
+    $("#Passwd").val(System.getProperty("gmail.password", "dummy-password"));
     $("#signIn").click();
     $(".error-msg").waitUntil(disappears, 2000);
   }

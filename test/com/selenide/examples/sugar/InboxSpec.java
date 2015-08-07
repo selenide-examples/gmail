@@ -1,7 +1,8 @@
-package org.selenide.examples.gmail;
+package com.selenide.examples.sugar;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.junit.Ignore;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
@@ -15,7 +16,7 @@ public class InboxSpec extends GmailTests {
     $(By.xpath("//div[@role='navigation']")).find(withText("Inbox")).shouldBe(visible);
   }
 
-  @Test
+  @Ignore
   public void inboxShowsUnreadMessages() {
     $$(byText("Gmail Team")).filter(visible).shouldHave(size(1));
     $$(byText("LastPass")).filter(visible).shouldHave(size(3));
