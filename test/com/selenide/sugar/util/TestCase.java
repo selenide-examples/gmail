@@ -1,4 +1,4 @@
-package com.selenide.examples.sugar;
+package com.selenide.sugar.util;
 
 import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.AfterClass;
@@ -13,14 +13,14 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.addListener;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
-public abstract class GmailTests {
+public abstract class TestCase {
   @Rule
   public ScreenShooter screenShooter = ScreenShooter.failedTests();
 
   @BeforeClass
   public static void openInbox() {
     timeout = 10000;
-    baseUrl = "http://gmail.com";
+    baseUrl = System.getProperty("sugar.baseUrl");
     startMaximized = false;
     addListener(new Highlighter());
     
@@ -39,10 +39,9 @@ public abstract class GmailTests {
   }
 
   private static void login() {
-    $("#Email").val(System.getProperty("gmail.username", "dummy-username"));
-    $("#next").click();
-    $("#Passwd").val(System.getProperty("gmail.password", "dummy-password"));
-    $("#signIn").click();
+    $("#user_name").val(System.getProperty("sugar.username", "dummy"));
+    $("#user_password").val(System.getProperty("sugar.password", "dummy"));
+    $("#login_button").click();
     $(".error-msg").waitUntil(disappears, 2000);
   }
 }

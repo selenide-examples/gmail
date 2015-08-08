@@ -1,16 +1,16 @@
-package com.selenide.examples.sugar;
+package com.selenide.sugar.tests;
 
+import com.selenide.sugar.util.TestCase;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.junit.Ignore;
-
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class InboxSpec extends GmailTests {
+public class InboxSpec extends TestCase {
   @Test
   public void showsNumberOfUnreadMessages() {
     $(By.xpath("//div[@role='navigation']")).find(withText("Inbox")).shouldBe(visible);

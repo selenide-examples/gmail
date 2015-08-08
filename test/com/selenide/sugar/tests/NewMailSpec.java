@@ -1,15 +1,15 @@
-package com.selenide.examples.sugar;
+package com.selenide.sugar.tests;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.junit.Ignore;
-
+import com.selenide.sugar.util.TestCase;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.selenide.examples.sugar.Highlighter.highlight;
+import static com.selenide.sugar.util.Highlighter.highlight;
 
-public class NewMailSpec extends GmailTests {
+public class NewMailSpec extends TestCase {
   @Ignore
   public void userCanComposeEmail() {
     $(byText("COMPOSE")).click();
