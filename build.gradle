@@ -18,13 +18,17 @@ repositories{
 }
 
 dependencies {
-  testCompile 'junit:junit:4.12'
-  testCompile 'org.hamcrest:hamcrest-all:1.3'
-  testCompile 'com.codeborne:selenide:2.20'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testCompile 'com.codeborne:selenide:2.20'
+    testCompile 'com.codeborne:phantomjsdriver:1.2.1'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
 }
 
 task libs(type: Sync) {
-  from configurations.testCompile
   into "$buildDir/lib"
 }
 
@@ -37,12 +41,13 @@ classes.dependsOn libs
 
 test {
   systemProperties = [
-          'sugar.baseUrl': 'http://localhost:8080/sugarcrm',
+          'sugar.baseUrl': 'http://gmail.com',
           'file.encoding': 'UTF-8',
-          'selenide.browser': 'chrome',
-          'webdriver.chrome.driver': '/Users/904824/bin/chromedriver',
-          'gmail.username': System.getProperty('gmail.username', "admin"),
-          'gmail.password': System.getProperty('gmail.password', "admin")
+          'selenide.browser': 'phantomjs',
+          //'selenide.browser': 'chrome',
+          //'webdriver.chrome.driver': '/user/bin/chromedriver',
+          'gmail.username': System.getProperty('gmail.username', "dummy"),
+          'gmail.password': System.getProperty('gmail.password', "dummy")
   ]
   testLogging.showStandardStreams = true
 }
