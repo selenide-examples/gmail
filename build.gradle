@@ -41,13 +41,13 @@ classes.dependsOn libs
 
 test {
   systemProperties = [
-          'sugar.baseUrl': 'http://gmail.com',
+          'sugar.baseUrl': 'http://localhost:8080/sugarcrm',
           'file.encoding': 'UTF-8',
           'selenide.browser': 'phantomjs',
           //'selenide.browser': 'chrome',
-          //'webdriver.chrome.driver': '/user/bin/chromedriver',
-          'gmail.username': System.getProperty('gmail.username', "dummy"),
-          'gmail.password': System.getProperty('gmail.password', "dummy")
+          //'webdriver.chrome.driver': 'chromedriver',
+          'sugar.username': System.getProperty('sugar.username', "admin"),
+          'sugar.password': System.getProperty('sugar.password', "admin")
   ]
   testLogging.showStandardStreams = true
 }

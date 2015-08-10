@@ -30,7 +30,7 @@ public abstract class TestCase {
   }
 
   protected static void waitUntilPagesIsLoaded() {
-    $(byText("Loading")).waitUntil(disappears, 2000000);
+    $(byText("Loading")).waitUntil(disappears, 20000);
   }
 
   @AfterClass
@@ -39,13 +39,13 @@ public abstract class TestCase {
   }
 
   private static void login() {
-    //$("#user_name").val(System.getProperty("sugar.username", "dummy"));
-    //$("#user_password").val(System.getProperty("sugar.password", "dummy"));
-    //$("#login_button").click();
-    $("#Email").val(System.getProperty("gmail.username", "dummy"));
+    $("#user_name").val(System.getProperty("sugar.username", "admin"));
+    $("#user_password").val(System.getProperty("sugar.password", "admin"));
+    $("#login_button").click();
+    /*$("#Email").val(System.getProperty("sugar.username", "admin"));
     $("#next").click();
-    $("#Passwd").val(System.getProperty("gmail.password", "dummy"));
-    $("#signIn").click();
+    $("#Passwd").val(System.getProperty("sugar.password", "admin"));
+    $("#signIn").click();*/
     $(".error-msg").waitUntil(disappears, 2000);
   }
 }

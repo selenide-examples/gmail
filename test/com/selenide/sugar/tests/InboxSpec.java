@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class InboxSpec extends TestCase {
-  @Test
+  @Ignore
   public void showsNumberOfUnreadMessages() {
     $(By.xpath("//div[@role='navigation']")).find(withText("Inbox")).shouldBe(visible);
   }
@@ -23,7 +23,7 @@ public class InboxSpec extends TestCase {
     $$(byText("Pivotal Tracker")).filter(visible).shouldHave(size(3));
   }
 
-  @Test
+  @Ignore
   public void userCanRefreshMessages() {
     $(by("title", "Refresh")).click();
   }
