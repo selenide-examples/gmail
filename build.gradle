@@ -28,7 +28,7 @@ task libs(type: Sync) {
   into "$buildDir/lib"
 }
 
-classes.dependsOn libs
+compileJava.dependsOn libs
 
 [compileJava, compileTestJava]*.options.collect {options -> options.encoding = 'UTF-8'}
 [compileJava, compileTestJava]*.options.collect {options -> options.debug = true}
