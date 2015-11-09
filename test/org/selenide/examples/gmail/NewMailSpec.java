@@ -14,7 +14,7 @@ public class NewMailSpec extends GmailTests {
     $(byText("COMPOSE")).click();
     waitUntilPagesIsLoaded();
     $(By.name("to")).val("andrei.solntsev@gmail.com").pressTab();
-    $(by("placeholder", "Subject")).val("SeleniumConf demo").pressTab();
+    $(by("placeholder", "Subject")).val("Devoxx demo").pressTab();
 
     $(".editable").val("We are not afraid of ajax anymore.").pressEnter();
     $(byText("Send")).click();
@@ -23,7 +23,7 @@ public class NewMailSpec extends GmailTests {
     $(byText("Undo")).click();
     // highlight($(byText("Sending has been undone.")).should(appear));
 
-    $(".editable").should(appear).append("Hello from Portland").pressEnter().pressEnter();
+    $(".editable").should(appear).append("Hello from Antwerp").pressEnter().pressEnter();
 
     $(byText("Send")).click();
     highlight($(withText("Your message has been sent.")).should(appear));
@@ -34,6 +34,6 @@ public class NewMailSpec extends GmailTests {
 
   private void assertUserCanSeeSentEmails() {
     $(byText("Sent Mail")).click();
-    highlight($(byText("SeleniumConf demo")).shouldBe(visible));
+    highlight($(byText("Devoxx demo")).shouldBe(visible));
   }
 }
