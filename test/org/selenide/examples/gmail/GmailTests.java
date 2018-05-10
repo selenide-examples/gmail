@@ -27,6 +27,9 @@ public abstract class GmailTests {
     timeout = 10000;
     baseUrl = "http://gmail.com";
     startMaximized = false;
+    browser = "chrome";
+    browserPosition = "900x10";
+    browserSize = "800x900";
     addListener(new Highlighter());
     
     open("/");
@@ -44,9 +47,7 @@ public abstract class GmailTests {
   }
 
   private static void login() {
-    $("#Email").val(gmailUsername).pressEnter();
-    $("#Passwd").val(gmailPassword);
-    $("#signIn").click();
-    $(".error-msg").waitUntil(disappears, 2000);
+    $("#identifierId").val(gmailUsername).pressEnter();
+    $("#password input").val(gmailPassword).pressEnter();
   }
 }
