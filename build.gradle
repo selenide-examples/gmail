@@ -44,9 +44,3 @@ test {
   ]
   testLogging.showStandardStreams = true
 }
-
-task wrapper(type: Wrapper) {
-  gradleVersion = '3.4.1'
-  jarFile = '.gradle/wrapper/gradle-wrapper.jar'
-  scriptFile = './gradle'
-}

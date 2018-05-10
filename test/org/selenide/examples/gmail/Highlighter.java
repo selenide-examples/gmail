@@ -25,7 +25,7 @@ public class Highlighter extends AbstractWebDriverEventListener {
   }
 
   @Override
-  public void beforeChangeValueOf(WebElement element, WebDriver driver) {
+  public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
     highlight(element, "orange");
   }
 
