@@ -28,8 +28,8 @@ public abstract class GmailTests {
     baseUrl = "http://gmail.com";
     startMaximized = false;
     browser = "chrome";
-    browserPosition = "900x10";
-    browserSize = "800x900";
+    browserPosition = "890x10";
+    browserSize = "780x950";
     addListener(new Highlighter());
     
     open("/");

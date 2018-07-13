@@ -21,7 +21,7 @@ public class NewMailSpec extends GmailTests {
 
     $(withText("Your message has been sent.")).shouldBe(visible);
     $(byText("Undo")).click();
-    // highlight($(byText("Sending has been undone.")).should(appear));
+    highlight($(byText("Sending has been undone.")).should(appear));
 
     $(".editable").should(appear)
         .append("Hello from Kraków")
