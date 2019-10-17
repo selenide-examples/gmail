@@ -21,7 +21,6 @@ public class InboxSpec extends GmailTests {
   @Test
   public void inboxShowsUnreadMessages() {
     $$(byText("Gmail Team")).filter(visible).shouldHave(size(1));
-    $$(byText("LastPass")).filter(visible).shouldHave(size(1));
     $$(byText("Pivotal Tracker")).filter(visible).shouldHave(size(1));
   }
 
