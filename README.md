@@ -21,7 +21,7 @@ systemProp.gmail.username=your_email@gmail.com
 systemProp.gmail.password=your_gmail_password
 ```
 
-And just run `./gradle` from command line.
+And just run `./gradlew` from command line.
 
 _Feel free to share your feedback!_
 
