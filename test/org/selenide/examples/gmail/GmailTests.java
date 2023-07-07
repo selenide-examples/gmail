@@ -1,17 +1,18 @@
 package org.selenide.examples.gmail;
 
-import static com.codeborne.selenide.Condition.disappears;
+import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.browser;
 import static com.codeborne.selenide.Configuration.browserPosition;
 import static com.codeborne.selenide.Configuration.browserSize;
-import static com.codeborne.selenide.Configuration.startMaximized;
 import static com.codeborne.selenide.Configuration.timeout;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.addListener;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+
+import java.time.Duration;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -22,8 +23,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
 
 public abstract class GmailTests {
-  private static String gmailUsername = System.getProperty("gmail.username", "enter-your-gmail-username");
-  private static String gmailPassword = System.getProperty("gmail.password", "enter-your-gmail-password");
+  private static final String gmailUsername = System.getProperty("gmail.username", "enter-your-gmail-username");
+  private static final String gmailPassword = System.getProperty("gmail.password", "enter-your-gmail-password");
 
   @Rule
   public ScreenShooter screenShooter = ScreenShooter.failedTests();
@@ -35,7 +36,6 @@ public abstract class GmailTests {
 
     timeout = 10000;
     baseUrl = "http://gmail.com";
-    startMaximized = false;
     browser = "chrome";
     browserPosition = "890x10";
     browserSize = "780x950";
@@ -47,7 +47,7 @@ public abstract class GmailTests {
   }
 
   protected static void waitUntilPagesIsLoaded() {
-    $(byText("Loading")).waitUntil(disappears, 20000);
+    $(byText("Loading")).should(disappear, Duration.ofSeconds(20));
   }
 
   @AfterClass

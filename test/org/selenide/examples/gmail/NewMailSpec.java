@@ -1,13 +1,15 @@
 package org.selenide.examples.gmail;
 
 import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.disappears;
+import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.by;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static org.selenide.examples.gmail.Highlighter.highlight;
+
+import java.time.Duration;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -39,7 +41,7 @@ public class NewMailSpec extends GmailTests {
     highlight($(withText("Message sent")).should(appear));
     undo.should(appear);
     highlight(undo);
-    undo.waitUntil(disappears, 12000);
+    undo.should(disappear, Duration.ofSeconds(12));
 
     assertUserCanSeeSentEmails();
   }
