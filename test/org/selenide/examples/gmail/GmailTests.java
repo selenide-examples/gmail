@@ -1,19 +1,25 @@
 package org.selenide.examples.gmail;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.junit.ScreenShooter;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-
 import static com.codeborne.selenide.Condition.disappears;
-import static com.codeborne.selenide.Configuration.*;
+import static com.codeborne.selenide.Configuration.baseUrl;
+import static com.codeborne.selenide.Configuration.browser;
+import static com.codeborne.selenide.Configuration.browserPosition;
+import static com.codeborne.selenide.Configuration.browserSize;
+import static com.codeborne.selenide.Configuration.startMaximized;
+import static com.codeborne.selenide.Configuration.timeout;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.addListener;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.ScreenShooter;
 
 public abstract class GmailTests {
   private static String gmailUsername = System.getProperty("gmail.username", "enter-your-gmail-username");
@@ -24,6 +30,9 @@ public abstract class GmailTests {
 
   @BeforeClass
   public static void openInbox() {
+    Configuration.browserCapabilities = new ChromeOptions()
+      .addArguments("--disable-blink-features=AutomationControlled");
+
     timeout = 10000;
     baseUrl = "http://gmail.com";
     startMaximized = false;
