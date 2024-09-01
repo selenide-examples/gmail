@@ -28,6 +28,12 @@ dependencies {
 [compileJava, compileTestJava]*.sourceCompatibility = 17
 [compileJava, compileTestJava]*.targetCompatibility = 17
 
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
+  }
+}
+
 test {
   systemProperties = [
     'file.encoding': 'UTF-8',
