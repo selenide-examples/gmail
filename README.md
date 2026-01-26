@@ -10,7 +10,7 @@ This is a sample project demonstrating how to test GMail UI with Selenide (Selen
 To run Gmail tests, just type from command line:
 
 ```
-./gradle -Dgmail.username=your_email@gmail.com -Dgmail.password=your_gmail_password
+./gradlew -Dgmail.username=your_email@gmail.com -Dgmail.password=your_gmail_password
 ```
 
 
